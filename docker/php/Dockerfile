@@ -46,6 +46,8 @@ RUN addgroup -g 1000 laravel && adduser -G laravel -g laravel -s /bin/sh -D lara
     intl && \
     # Install Supervisor
     apk add supervisor && \
+    # Install Node
+    apk add nodejs npm && \
     # Installing Composer
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer && \
     # Installing Tini
