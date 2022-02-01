@@ -52,3 +52,20 @@ services:
             MYSQL_ROOT_PASSWORD: envisiapass
         networks:
             - network_envisia
+
+    redis:
+        image: redis:5.0.9
+        container_name: envisia-queue
+        volumes:
+            - .:/var/www/html
+        restart: unless-stopped
+        command: redis-server --requirepass envisia
+        environment:
+            - REDIS_PASSWORD=envisia
+        ports:
+            - "6380:6379"
+        depends_on:
+            - mysql
+        networks:
+            - network_envisia
+
