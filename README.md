@@ -50,4 +50,4 @@ php artisan dispatch:hydrate-database 5000 // The param is a quantity to insert 
 
 ## Database Design
 
-[](./docs/database.png)
+![Database](./docs/database.png)
