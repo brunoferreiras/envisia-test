@@ -19,7 +19,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/customers', [App\Http\Controllers\CustomerController::class, 'index'])->name('customers');
+Route::middleware('auth')->group(function() {
+    Route::get('/customers', [App\Http\Controllers\CustomerController::class, 'index'])->name('customers');
+    Route::get('/products', [App\Http\Controllers\ProductController::class, 'index'])->name('products');
+});
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
