@@ -3,7 +3,6 @@
 namespace App\Console\Commands;
 
 use App\Jobs\RequestCustomersFakerApi;
-use App\Jobs\RequestFakerApi;
 use App\Jobs\RequestProductsFakerApi;
 use Illuminate\Console\Command;
 

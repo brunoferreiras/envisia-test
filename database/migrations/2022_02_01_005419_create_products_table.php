@@ -22,9 +22,9 @@ class CreateProductsTable extends Migration
             $table->string('ean', 20);
             $table->string('upc', 20);
             $table->string('image');
-            $table->float('net_price');
+            $table->double('net_price');
             $table->float('taxes');
-            $table->float('price');
+            $table->double('price');
             $table->timestamps();
         });
     }
