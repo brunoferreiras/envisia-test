@@ -15,7 +15,7 @@ make bash
 // Generate the key
 php artisan key:generate
 // Build front
-npm install && npm run build
+npm install && npm run prod
 // It's everything!
 // You can access the api in: http://localhost:8040/
 
