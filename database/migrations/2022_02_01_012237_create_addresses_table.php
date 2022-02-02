@@ -19,14 +19,21 @@ class CreateAddressesTable extends Migration
             $table->bigIncrements('id');
             $table->string('street');
             $table->string('street_name');
-            $table->string('building_number');
-            $table->string('city');
-            $table->string('zipcode');
-            $table->string('country');
-            $table->string('country_code');
+            $table->string('building_number', 10);
+            $table->string('city', 100);
+            $table->string('zipcode', 20);
+            $table->string('country', 100);
+            $table->string('country_code', 10);
             $table->float('latitude');
             $table->float('longitude');
+            $table->unsignedBigInteger('customer_id');
             $table->timestamps();
+
+            $table->foreign('customer_id')
+                ->references('id')
+                ->on('customers')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
         });
     }
 

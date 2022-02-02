@@ -20,5 +20,5 @@ class Address extends Model implements Transformable
      *
      * @var array
      */
-    protected $fillable = ['street', 'street_name', 'building_number', 'city', 'zipcode', 'country', 'country_code', 'latitude', 'longitude'];
+    protected $fillable = ['street', 'street_name', 'building_number', 'city', 'zipcode', 'country', 'country_code', 'latitude', 'longitude', 'customer_id'];
 }

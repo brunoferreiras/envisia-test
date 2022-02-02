@@ -30,6 +30,7 @@ services:
         container_name: envisia-app
         volumes:
             - ./:/var/www/html
+            - ./docker/php/supervisord.conf:/etc/supervisord.conf
         restart: unless-stopped
         tty: true
         networks:

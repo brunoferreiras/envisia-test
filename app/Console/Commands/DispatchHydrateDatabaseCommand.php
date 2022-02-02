@@ -9,6 +9,8 @@ use Illuminate\Console\Command;
 
 class DispatchHydrateDatabaseCommand extends Command
 {
+    const CHUNK_VALUE = 500;
+
     /**
      * The name and signature of the console command.
      *
@@ -42,9 +44,12 @@ class DispatchHydrateDatabaseCommand extends Command
     {
         $this->info("Dispatching jobs");
         $quantity = $this->argument('quantity');
-        $this->info("Total: " . $quantity);
-        RequestCustomersFakerApi::dispatch($quantity);
-        RequestProductsFakerApi::dispatch($quantity);
-        return 0;
+        $chunks = $quantity / self::CHUNK_VALUE;
+        for ($count = 0; $count < $chunks; $count++) {
+            $this->info("Dispatching customers: " . $count);
+            RequestCustomersFakerApi::dispatch($quantity);
+            $this->info("Dispatching products: " . $count);
+            RequestProductsFakerApi::dispatch($quantity);
+        }
     }
 }
