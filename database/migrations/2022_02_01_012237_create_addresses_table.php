@@ -24,8 +24,8 @@ class CreateAddressesTable extends Migration
             $table->string('zipcode', 20);
             $table->string('country', 100);
             $table->string('country_code', 10);
-            $table->float('latitude');
-            $table->float('longitude');
+            $table->float('latitude')->nullable();
+            $table->float('longitude')->nullable();
             $table->unsignedBigInteger('customer_id');
             $table->timestamps();
 

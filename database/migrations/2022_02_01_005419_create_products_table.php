@@ -21,7 +21,7 @@ class CreateProductsTable extends Migration
             $table->string('description');
             $table->string('ean', 20);
             $table->string('upc', 20);
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->double('net_price');
             $table->float('taxes');
             $table->double('price');

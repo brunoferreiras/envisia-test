@@ -22,8 +22,8 @@ class CreateCustomersTable extends Migration
             $table->string('email', 100);
             $table->string('phone', 40);
             $table->date('birthday');
-            $table->string('gender');
-            $table->string('image', 255);
+            $table->string('gender', 20)->nullable();
+            $table->string('image', 255)->nullable();
             $table->timestamps();
         });
     }
